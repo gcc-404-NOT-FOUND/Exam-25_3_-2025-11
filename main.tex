@@ -1,0 +1,133 @@
+\documentclass[12pt,UTF8]{article}
+\usepackage[twoside,a4paper,inner=0.5in,outer=1in,bindingoffset=0.5in,top=1.5in,bottom=1.5in]{geometry}
+\usepackage{indentfirst}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{xcolor}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{ragged2e}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{ulem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage{textcomp}
+
+\hypersetup{
+colorlinks=true,urlcolor=blue,%杂项结束，我要开始装逼了
+%pdf元数据
+pdftitle={2025-11-13思沁模考25(3)},%作品标题
+pdfsubject={Mathematics},%作品主题
+pdfauthor={gcc-404-NOT-FOUND},%作者是我
+pdfkeywords={思沁,模拟考,期中},%搜索关键词
+pdfcreator={gcc-404-NOT-FOUND},
+pdfproducer={Overleaf® TeX Live 2025 XeLaTeX},%编译器使用TeX Live 2025
+pdfcreationdate={\today},%修改日期：编译时的那天
+pdfcopyright={Copyright (c) 2025 by gcc-404-NOT-FOUND.文章为gcc-404-NOT-FOUND原创，未经允许不可转卖或盗用。This article is originally written by gcc-404-NOT-FOUND. Unauthorized resale or misappropriation is prohibited.},%免责声明
+pdfversion={v1.0.0}%版本号
+}
+
+%格式化
+\renewcommand{\title}[1]{{\centering \huge{\textbf{\textsf{#1}}}\\}} %用\title{}打印主标题
+\newcommand{\subtitle}[1]{{\RaggedLeft \large{\textsf{------#1}}\par}} %用\subtitle{}打印副标题
+%页眉页脚
+\fancyhf{}
+
+\fancyhead[CO]{\Large{\LaTeX}}
+\fancyhead[CE]{\includegraphics[scale=0.01]{Overleaf_Logo.jpeg} Overleaf\textsuperscript{\textregistered} \includegraphics[scale=0.01]{Overleaf_Logo.jpeg}}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[CO]{Get source code by emailing the author at TemplateCPP@Outlook.com}
+\fancyfoot[CE]{\TeX\ Live 2025}
+
+\pagestyle{fancy}
+%水印
+\AddToShipoutPictureBG{%水印
+    \AtPageLowerLeft{%
+        \rotatebox{54.737}{%
+            \makebox[\paperwidth]{%
+                \textcolor{gray!15}{\scalebox{1.25}{\Huge \texttt{Copyright \textsuperscript{\textcopyright} 2025 by gcc-404-NOT-FOUND}}} % 降低透明度，调整大小
+            }%
+        }%
+    }%
+}
+
+\setlength{\parindent}{0em}%全局禁用首段缩进
+
+\begin{document}
+\title{解析几何法解25(3)}
+\subtitle{湖南湘江新区思沁学校2025年下学期八年级数学期中模拟考试}
+
+\section{原题}
+25.如图1，点A在$y$轴正半轴上，点B在$x$轴负半轴上，点C和点D分别在第四象限和第一象限，OA=OB，OC=OD，OC$ \perp $OD，点D的坐标为$(m,n)$，且满足\(n^2 -4n+4+(2n-m)^2 =0\).\par
+(3)如图2，点P,Q分别在$y$轴正半轴和$x$轴负半轴上，且OP=OQ，直线ON$ \perp $BP交AB于点N，MN$ \perp $AQ交BP的延长线于点M，判断ON，MN，BM的数量关系并证明.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{IMG_2.jpeg}
+    \addtocounter{figure}{1}
+    \caption{图像由GeoGebra\textsuperscript{\textregistered}绘制}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{使用公式}
+\begin{equation*}
+    L=\int^a_b \sqrt{1+[\frac{\mathrm{d}f(x)}{\mathrm{d}x}]^2}\mathrm{d}x\quad (x\in[a,b])
+    \label{eq:FunctionLength}
+\end{equation*}
+
+\section{解：}
+\paragraph{BM=ON+MN.}理由：\par
+设OP=OQ=$a$,AP=BQ=$b$\par
+则很容易得到：
+\begin{align}
+    \overleftrightarrow{\mathrm{AB}}:y&=x+a+b
+    \label{func:AB}\\
+    \overleftrightarrow{\mathrm{BM}}:f_1(x)&=\frac{a}{a+b}x+a
+    \label{func:BM}\\
+    \overleftrightarrow{\mathrm{AQ}}:f_2(x)&=\frac{a+b}{a}x+a+b
+    \label{func:AQ}
+\end{align}
+$\because$ON$\perp$BM\par
+$\therefore$ON的斜率为BM的负倒数\par
+$\therefore$有：
+\begin{align}
+    \label{func:ON}
+    \overleftrightarrow{\mathrm{ON}}:f_3(x)=-\frac{a+b}{a}x
+\end{align}
+令\hyperref[func:ON]{$f_3(x)$}$=$\hyperref[func:AB]{$y$}，得AB与ON的交点N有：
+\begin{align*}
+    -\frac{a+b}{a}x=x+a+b
+\end{align*}
+解得\(x=-\frac{a^2+ab}{2a+b}\)\par
+则有N\((-\frac{a^2+ab}{2a+b},\frac{a^2+2ab+b^2}{2a+b})\)\par
+$\because$MN$perp$AQ\par
+$\therefore$有
+\begin{align}
+    \label{func:MN}
+    \overleftrightarrow{\mathrm{MN}}:f_4(x)=-\frac{a}{a+b}x+b
+\end{align}
+令\hyperref[func:BM]{$f_1(x)$}$=$\hyperref[func:MN]{$f_4(x)$}，得BM与MN的交点M有：
+\begin{align*}
+    \frac{a}{a+b}x+a=-\frac{a}{a+b}x+b
+\end{align*}
+解得\(x=\frac{b^2-a^2}{2a}\)\par
+则有M\((\frac{b^2-a^2}{2a},\frac{a+b}{2})\)\par
+$\therefore$有:
+\begin{align*}
+    L_{\mathrm{\overline{ON}}}&=\int^0_{-\frac{a^2+ab}{2a+b}} \sqrt{1+[\frac{\mathrm{d}(-\frac{a+b}{a}x)}{\mathrm{d}x}]^2}\mathrm{d}x\\
+    &=\frac{a+b}{2a+b} \sqrt{2a^2 + 2ab + b^2}\\
+    L_{\overline{\mathrm{MN}}}&=\int^{\frac{b^2-a^2}{2a}}_{-\frac{a^2+ab}{2a+b}} \sqrt{1+[\frac{\mathrm{d}(-\frac{a}{a+b}x+b)}{\mathrm{d}x}]^2}\mathrm{d}x\\
+    &=\frac{b(a+b)}{2a(2a+b)} \sqrt{2a^2 + 2ab + b^2}\\
+    L_{\overline{\mathrm{BM}}}&=\int^{\frac{b^2-a^2}{2a}}_{-a-b} \sqrt{1+[\frac{\mathrm{d}(\frac{a}{a+b}x+a)}{\mathrm{d}x}]^2}\mathrm{d}x\\
+    &=\frac{a+b}{2a} \sqrt{2a^2 + 2ab + b^2}
+\end{align*}
+\(\because\frac{a+b}{2a+b}+\frac{b(a+b)}{2a(2a+b)}=\frac{a+b}{2a}\)\par
+\(\therefore L_{\mathrm{\overline{ON}}}+L_{\overline{\mathrm{MN}}}=L_{\overline{\mathrm{BM}}}\)
+$\therefore$ON+MN=BM
+
+\begin{thebibliography}{3}
+\bibitem{} 《解析几何》\_丘维声著\_北京大学出版社\_ISBN:978-7-301-28005-8
+\bibitem{} 《微分几何》第五版\_梅向明、黄敬之著\_高等教育出版社\_ ISBN:978-7-040-50741-6
+\end{thebibliography}
+
+\end{document}
